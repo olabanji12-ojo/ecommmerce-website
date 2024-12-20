@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="login-page" >
+  <form method="POST"  action="" class="login-form">
+    {% csrf_token %}
+    <div class="login-items" >
+     <label>Username:</label>
+     <input type="text" placeholder="Enter username..." name="username">
+   </div>   
+   <div class="login-items" >
+    <label>Password:</label>
+    <input type="password" placeholder="Enter password..." name="password" >
+
+   </div>
+
+  <input type="submit" value="Login">
+  <p>Dont have an account yet ? <a href="{% url 'register_page' %}">register</a></p>
+  <a href="{% url 'reset_password' %}">forgot password?</a>
+  </form>
+  
+
+</div>
+
+
+{% endblock %}

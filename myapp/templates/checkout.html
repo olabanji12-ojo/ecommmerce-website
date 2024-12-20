@@ -1,0 +1,121 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<div class="checkout-container">
+
+    
+    <form id="left-container" >
+
+        <div class="upper-left-container">
+            <input required class="form-control"  type="text" name="name"  placeholder="Name..">
+
+            <input required class="form-control" type="text"  name="email"  placeholder="Email.." >
+
+        </div>
+        <div class="shipping-info">
+            <strong class="smaller-shipping" >Shipping Information:</strong>
+        </div>
+
+        <div class="lower-left-container">
+            <div class="l-field">
+                <input class="lower-field"  type="text" placeholder="Address..">
+           </div>
+
+           <div class="l-field">
+                <input class="lower-field"  type="text" placeholder="City..">
+           </div>
+
+           <div class="l-field">
+                <input class="lower-field"  type="text" placeholder="State..">
+          </div>
+
+          <div class="l-field">
+            <input class="lower-field"  type="text" placeholder="Zipcode..">
+
+          </div>
+
+          <div class="l-field">
+            <input class="lower-field"  type="text" placeholder="Bonus..">
+
+          </div>
+            
+        </div>
+
+        <div class="checkout-button">
+            <input type="submit" value="Continue" id="continue-button">
+
+        </div>
+
+        <div class="box-element hidden" id="payment-info">
+            <small>Paypal Options</small>
+            <button id="make-payment">Make Payment</button>
+        </div>
+
+    </form>
+
+    <div class="right-container">
+        <div class="back-to-cart">
+            <a  class="to-cart" href="{% url 'cart' %}">Back to Cart</a>
+        </div>
+        
+        <div>
+            <p class="order-summary">Order Summary</p>
+        </div>
+        
+        {% for item in items %}
+        <div class="lower-checkout">
+
+            <div class="image-checkout">
+                <img class="smaller-image" src="{{item.product.image.url}}" alt="">
+            </div>
+            
+            <div class="product-checkout">
+                <p>{{item.product.name}}</p>
+            </div>
+
+            <div class="money">
+                <p>${{item.product.price}}</p>
+
+            </div>
+            <div class="number-times">
+                <p>x{{item.quantity}}</p>
+            </div>
+
+
+        </div>
+        {% endfor %}
+        
+        <div class="paragraph">
+            <p>Items: {{order.get_cart_items}}</p>
+            <p>Total: ${{order.get_cart_total}}</p>
+        
+
+
+    </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    
+
+    let continue_shopping = document.getElementById('left-container')
+    let element = document.getElementById('payment-info')
+
+    continue_shopping.addEventListener('submit', (e) =>{
+        e.preventDefault()
+        // console.log('cart purchased');
+        document.getElementById('continue-button').hidden = true;
+        element.style.display = 'block';
+
+        
+
+    })
+
+</script>
+
+{% endblock %}

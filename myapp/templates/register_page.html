@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+<form class="register-page" method="POST"  action="">
+    {% csrf_token %}
+
+{{form.as_p}}
+
+<input type="submit" value="register" >
+
+<p>Already signed up? <a href="{% url 'login_page' %}">Login</a></p>
+</form>
+
+
+{% endblock %}

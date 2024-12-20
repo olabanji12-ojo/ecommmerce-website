@@ -1,0 +1,67 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="cart-design">
+    <div class="cart-container">
+
+        <div class="upper-design">
+            <div class="border-line">
+                <div class="continue-shopping">
+                <a class="shopping"  href="{% url 'home_page' %}">Continue Shopping</a>
+               </div>
+
+                <div class="under-border">
+                    <h4>Items: {{order.get_cart_items}}</h4>
+                    <h4>Total:${{order.get_cart_total}}</h4>
+                    <h4><a href="{% url 'checkout' %}">Checkout</a></h2>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="lower-design">
+            <div class="lower-display">
+                <div class="items">
+                    <div class="column">
+                        <div style="flex:2"></div>
+                        <div style="flex:2"><strong>Item</strong></div>
+                        <div style="flex:1"><strong>Price</strong></div>
+                        <div style="flex:1"><strong>Quantity</strong></div>
+                        <div style="flex:1"><strong>Total</strong></div>
+                    </div>
+                       
+                    {% for item in items %}
+                    <div class="cart-row">
+                        <div style="flex:2"><img src="{{item.product.image.url}}" alt="" class="smaller-image"></div>
+                        <div style="flex:2"><p>{{item.product.name}}</p></div>
+                        <div style="flex:1"><p>${{item.product.price}}</p></div>
+                        <div  style="flex:1" class="quantity">
+                            <p class="quantity-part">{{item.quantity}}</p>
+                            <div class="arrow">
+                                <img  data-product_id='{{item.product.id}}'    data-action='add'  src="{% static 'images/arrow-up.png' %}" alt="" class="arrow-design add-to-cart ">
+                                <img  data-product_id='{{item.product.id}}' data-action='remove' src="{% static 'images/arrow-down.png' %}" alt="" class="arrow-design add-to-cart ">
+                            </div>
+
+                        </div>
+                        <div style="flex:1" ><p>${{item.get_total}}</p></div>
+
+                    </div>
+                    {% endfor %}
+                    
+
+                </div>
+       
+            </div>
+            
+        </div>
+
+
+    </div>
+</div>
+
+
+{% endblock %}
