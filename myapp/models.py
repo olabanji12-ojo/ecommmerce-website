@@ -3,11 +3,11 @@ from django.contrib.auth.models import User
 # from .views import product
 
 class Product(models.Model):
+    
     name = models.CharField(max_length=200)
     price = models.DecimalField(decimal_places=2, max_digits=7)
     digital = models.BooleanField(default=False)
     description = models.TextField(null=True, blank=True)
-    
     image = models.ImageField()
     
     
@@ -16,7 +16,7 @@ class Product(models.Model):
     
     
 class Customer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     username = models.CharField(max_length=200)
     bio = models.TextField()
     
@@ -66,7 +66,7 @@ class Orderitem(models.Model):
     
 class ShippingAddress(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, null=True, blank=True)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, blank=True)
+    # product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, blank=True)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=200)

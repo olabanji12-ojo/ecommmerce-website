@@ -117,7 +117,28 @@ def update_cart(request):
 
 
 def shipping_info(request):
-    
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        # product = Product.objects.get(id=product_id)
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer)
+        name = data.get('name')
+        email = data.get('email')
+        
+        
+        ShippingAddress.objects.create(
+            customer = customer,
+            order = order,
+            address = data.get('name'),
+            city = data.get('city'),
+            state = data.get('state'),
+            zipcode = data.get('zipcode')
+            
+        )
+        order_items = Orderitem.objects.filter(order=order)
+        order_items.delete()
+        # order_items.save()
+
     return JsonResponse('payment button was clicked', safe=False)
     
 # Create your views here.

@@ -8,8 +8,9 @@
 <div class="checkout-container">
 
     
-    <form id="left-container" >
-
+    <form id="left-container"  method="POST" action="">
+        
+        {% csrf_token %}
         <div class="upper-left-container">
             <input required class="form-control"  type="text" name="name"  placeholder="Name..">
 
@@ -22,26 +23,26 @@
 
         <div class="lower-left-container">
             <div class="l-field">
-                <input class="lower-field"  type="text" placeholder="Address..">
+                <input class="lower-field" name="address" type="text" placeholder="Address..">
            </div>
 
            <div class="l-field">
-                <input class="lower-field"  type="text" placeholder="City..">
+                <input class="lower-field" name="city"  type="text" placeholder="City..">
            </div>
 
            <div class="l-field">
-                <input class="lower-field"  type="text" placeholder="State..">
+                <input class="lower-field" name="state" type="text" placeholder="State..">
           </div>
 
           <div class="l-field">
-            <input class="lower-field"  type="text" placeholder="Zipcode..">
+            <input class="lower-field" name="zipcode"  type="text" placeholder="Zipcode..">
 
           </div>
 
-          <div class="l-field">
+          <!-- <div class="l-field">
             <input class="lower-field"  type="text" placeholder="Bonus..">
 
-          </div>
+          </div> -->
             
         </div>
 
@@ -105,17 +106,63 @@
 
     let continue_shopping = document.getElementById('left-container')
     let element = document.getElementById('payment-info')
+    let makePayment = document.getElementById('make-payment')
 
+    let name, email, address, city, state, zipcode;
     continue_shopping.addEventListener('submit', (e) =>{
         e.preventDefault()
+
+        let formData = new FormData(continue_shopping)
+
+        name = formData.get('name')
+        email = formData.get('email')
+        address = formData.get('address')
+        city = formData.get('city')
+        state = formData.get('state')
+        zipcode = formData.get('zipcode')
+
+        console.log('Name:', name);
+        console.log('Email:', email);
+        console.log('Address:', address);
+        console.log('City:', city);
+        console.log('State:', state);
+        console.log('Zipcode:', zipcode);
+
         // console.log('cart purchased');
         document.getElementById('continue-button').hidden = true;
         element.style.display = 'block';
 
-        
-
     })
+    
+    makePayment.addEventListener('click', () =>{
 
+        url = '/shipping_info/'
+
+        fetch(url, {
+            method: 'POST', // HTTP method
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': csrftoken
+            },
+            body: JSON.stringify({
+                 name: name,
+                 email: email,
+                 address: address,
+                 city: city,
+                 state: state,
+                 zipcode: zipcode
+    
+                 }) 
+          })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data)
+                window.location.href = '/'
+            })
+            
+            .catch(error => console.error('Error:', error));
+    })
+  
 </script>
 
 {% endblock %}
