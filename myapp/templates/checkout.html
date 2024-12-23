@@ -1,56 +1,44 @@
 {% extends 'main.html' %}
 {% load static %}
 
-
 {% block content %}
-
-
 <div class="checkout-container">
 
-    
-    <form id="left-container"  method="POST" action="">
-        
+    <form id="left-container" method="POST" action="">
         {% csrf_token %}
+        
+        <!-- Customer Details Section -->
         <div class="upper-left-container">
-            <input required class="form-control"  type="text" name="name"  placeholder="Name..">
-
-            <input required class="form-control" type="text"  name="email"  placeholder="Email.." >
-
+            <input required class="form-control" type="text" name="name" placeholder="Name..">
+            <input required class="form-control" type="text" name="email" placeholder="Email..">
         </div>
+
+        <!-- Shipping Information Section -->
         <div class="shipping-info">
-            <strong class="smaller-shipping" >Shipping Information:</strong>
+            <strong class="smaller-shipping">Shipping Information:</strong>
         </div>
 
         <div class="lower-left-container">
             <div class="l-field">
                 <input class="lower-field" name="address" type="text" placeholder="Address..">
-           </div>
-
-           <div class="l-field">
-                <input class="lower-field" name="city"  type="text" placeholder="City..">
-           </div>
-
-           <div class="l-field">
+            </div>
+            <div class="l-field">
+                <input class="lower-field" name="city" type="text" placeholder="City..">
+            </div>
+            <div class="l-field">
                 <input class="lower-field" name="state" type="text" placeholder="State..">
-          </div>
-
-          <div class="l-field">
-            <input class="lower-field" name="zipcode"  type="text" placeholder="Zipcode..">
-
-          </div>
-
-          <!-- <div class="l-field">
-            <input class="lower-field"  type="text" placeholder="Bonus..">
-
-          </div> -->
-            
+            </div>
+            <div class="l-field">
+                <input class="lower-field" name="zipcode" type="text" placeholder="Zipcode..">
+            </div>
         </div>
 
+        <!-- Checkout Button -->
         <div class="checkout-button">
             <input type="submit" value="Continue" id="continue-button">
-
         </div>
 
+        <!-- Hidden Payment Section -->
         <div class="box-element hidden" id="payment-info">
             <small>Paypal Options</small>
             <button id="make-payment">Make Payment</button>
@@ -58,52 +46,44 @@
 
     </form>
 
+    <!-- Order Summary Section -->
     <div class="right-container">
         <div class="back-to-cart">
-            <a  class="to-cart" href="{% url 'cart' %}">Back to Cart</a>
+            <a class="to-cart" href="{% url 'cart' %}">Back to Cart</a>
         </div>
-        
+
         <div>
             <p class="order-summary">Order Summary</p>
         </div>
-        
+
         {% for item in items %}
         <div class="lower-checkout">
-
             <div class="image-checkout">
-                <img class="smaller-image" src="{{item.product.image.url}}" alt="">
+                <img class="smaller-image" src="{{ item.product.image.url }}" alt="">
             </div>
-            
+
             <div class="product-checkout">
-                <p>{{item.product.name}}</p>
+                <p>{{ item.product.name }}</p>
             </div>
 
             <div class="money">
-                <p>${{item.product.price}}</p>
-
+                <p>${{ item.product.price }}</p>
             </div>
+
             <div class="number-times">
-                <p>x{{item.quantity}}</p>
+                <p>x{{ item.quantity }}</p>
             </div>
-
-
         </div>
         {% endfor %}
-        
+
         <div class="paragraph">
-            <p>Items: {{order.get_cart_items}}</p>
-            <p>Total: ${{order.get_cart_total}}</p>
-        
-
-
-    </div>
+            <p>Items: {{ order.get_cart_items }}</p>
+            <p>Total: ${{ order.get_cart_total }}</p>
+        </div>
     </div>
 </div>
 
 <script type="text/javascript">
-
-    
-
     let continue_shopping = document.getElementById('left-container')
     let element = document.getElementById('payment-info')
     let makePayment = document.getElementById('make-payment')
@@ -128,41 +108,35 @@
         console.log('State:', state);
         console.log('Zipcode:', zipcode);
 
-        // console.log('cart purchased');
         document.getElementById('continue-button').hidden = true;
         element.style.display = 'block';
-
     })
-    
-    makePayment.addEventListener('click', () =>{
 
+    makePayment.addEventListener('click', () =>{
         url = '/shipping_info/'
 
         fetch(url, {
-            method: 'POST', // HTTP method
+            method: 'POST',
             headers: {
-              'Content-Type': 'application/json',
-              'X-CSRFToken': csrftoken
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken
             },
             body: JSON.stringify({
-                 name: name,
-                 email: email,
-                 address: address,
-                 city: city,
-                 state: state,
-                 zipcode: zipcode
-    
-                 }) 
-          })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data)
-                window.location.href = '/'
-            })
-            
-            .catch(error => console.error('Error:', error));
+                name: name,
+                email: email,
+                address: address,
+                city: city,
+                state: state,
+                zipcode: zipcode
+            }) 
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data)
+            window.location.href = '/'
+        })
+        .catch(error => console.error('Error:', error));
     })
-  
 </script>
 
 {% endblock %}
