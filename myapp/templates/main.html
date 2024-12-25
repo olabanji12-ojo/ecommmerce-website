@@ -34,6 +34,7 @@
             <ul class="home-page" >
                 <li><a href="{% url 'home_page' %}">Home</a></li>
                 <li><a href="{% url 'cart' %}">Cart</a></li>
+                <li><a href="{% url 'create_product' %}">Create Product</a></li>
             </ul>
             
             {% if request.user.is_authenticated %}

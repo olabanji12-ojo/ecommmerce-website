@@ -2,10 +2,11 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
-from .forms import RegisterCreationForm
+from .forms import RegisterCreationForm, ProductForm
 from .models import *
 from django.core.paginator import Paginator
 import json
+from django.contrib.auth.decorators import user_passes_test
 
 
 
@@ -140,5 +141,28 @@ def shipping_info(request):
         # order_items.save()
 
     return JsonResponse('payment button was clicked', safe=False)
+
+def superuser_required(view_func):
+    """
+    Custom decorator to allow only superusers.
+    """
+    decorated_view_func = user_passes_test(
+        lambda user: user.is_superuser,
+        login_url='/'  # Redirects to login page if not a superuser
+    )(view_func)
+    return decorated_view_func
+
+
+@superuser_required
+def create_product(request):
+    form = ProductForm()
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home_page')
+    
+    context = {'form':form}
+    return render(request, 'create_product.html', context)
     
 # Create your views here.

@@ -268,33 +268,42 @@ a{
     margin-left: 10px;
 }
 
-.checkout-container{
+.checkout-container {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allows wrapping of child elements */
+    justify-content: space-between; /* Distributes items evenly */
+    gap: 25px; /* Adds space between the form and summary */
+    padding: 20px; /* Adds padding inside the container */
+    max-width: 1200px; /* Optional: limits container width */
+    margin: 0 auto; /* Centers the container horizontally */
 }
 
-
-#left-container{
+#left-container, .right-container {
     background-color: #fff;
-    width: 35%;
-    height: 370px;
+    width: 48%; /* Makes them responsive */
+    height: auto; /* Adjust height to fit content */
     margin-top: 30px;
     border-radius: 4px;
-    box-shadow: 5px solid black;
-    
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Replaced solid shadow for a modern look */
+    padding: 15px; /* Adds internal spacing */
+    box-sizing: border-box; /* Includes padding/border in width */
 }
 
-.right-container{
-    background-color: #fff;
-    width: 35%;
-    height: fit-content;
-    margin-top: 30px;
-    margin-left: 25px;
-    border-radius: 4px;
-    box-shadow: 5px solid black;
+.right-container {
+    height: fit-content; /* Adjusts to content height */
+}
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .checkout-container {
+        flex-direction: column; /* Stacks elements vertically */
+        align-items: center; /* Centers child elements */
+    }
 
+    #left-container, .right-container {
+        width: 90%; /* Full width for smaller screens */
+        margin-left: 0; /* Removes unnecessary margin */
+    }
 }
 
 .order-summary{
@@ -554,131 +563,16 @@ body.dark-mode button:hover {
 
 
 /* Responsive Design for Checkout Page */
-@media (max-width: 768px) {
-  /* Base Styles for Checkout Page */
-.checkout-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    gap: 20px;
-    flex-wrap: wrap; /* Ensure elements wrap on smaller screens */
-}
-
-.checkout-summary, .payment-details {
-    width: 48%; /* Default for larger screens */
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.9); /* White background for clarity */
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.checkout-buttons {
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.checkout-buttons button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-/* Responsive Design for Checkout Page */
-@media (max-width: 768px) {
-    .checkout-container {
-        width: 90%; /* Adjust container width */
-        margin: 0 auto; /* Center the container */
-        padding: 10px; /* Add padding for better spacing */
-    }
-
-    /* Stack the summary and payment details */
-    .checkout-summary, .payment-details {
-        width: 100%; /* Take full width of the container */
-        margin-bottom: 15px; /* Space between sections */
-    }
-
-    .checkout-buttons {
-        flex-direction: column; /* Stack buttons vertically */
-        gap: 10px; /* Space between buttons */
-        align-items: center;
-    }
-
-    .checkout-buttons button {
-        width: 80%; /* Adjust button width */
-        font-size: 14px; /* Slightly smaller font for mobile */
-    }
-}
-
-/* Overlapping Effect for Extra Small Screens (Mobile) */
-@media (max-width: 480px) {
-    .checkout-container {
-        padding: 5px; /* Reduce padding for smaller devices */
-        font-size: 14px; /* Adjust font size for readability */
-    }
-
-    /* Overlapping effect for small screens */
-    .checkout-summary, .payment-details {
-        width: 100%; /* Full width */
-        padding: 10px;
-        background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
-        border: 1px solid #ddd; /* Optional border */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow */
-        position: absolute; /* Enable overlap */
-        left: 0;
-        right: 0;
-        margin: 0;
-    }
-
-    /* Position the summary at the top */
-    .checkout-summary {
-        top: 0;
-        z-index: 2; /* Make sure it overlaps the payment details */
-    }
-
-    /* Position payment details below the summary */
-    .payment-details {
-        top: 60px; /* Slightly below the summary */
-        z-index: 1; /* Behind summary */
-    }
-
-    /* Button Styling */
-    .toggle-buttons {
-        display: flex;
-        justify-content: center;
-        margin-top: 120px; /* Adjust space below overlapping sections */
-        gap: 10px;
-    }
-
-    .toggle-buttons button {
-        background-color: #007bff;
-        color: white;
-        border: none;
-        padding: 10px;
-        border-radius: 5px;
-        font-size: 14px;
-        cursor: pointer;
-    }
-
-    .toggle-buttons button.active {
-        background-color: #0056b3;
-    }
-
-    /* Ensure input fields fit properly */
-    .input-fields input, .input-fields select {
-        width: 90%; /* Inputs take up most of the available width */
-        margin: 0 auto 10px; /* Center inputs with spacing */
-        padding: 8px; /* Add padding for better UX */
-        font-size: 14px;
-        display: block;
-    }
-}
 
 
+
+
+
+
+
+
+.create-prod{
+    float: right;
 }
 
 
