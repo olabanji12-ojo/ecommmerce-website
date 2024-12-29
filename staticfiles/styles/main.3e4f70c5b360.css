@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+
+
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: rgba(232,233,239,1);
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+
+
+.login-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    /* padding: 20px; */
+    margin: 0, auto;
+    
+    
+}
+
+.login-form{
+    background-color: #fff;
+    width: 50%;
+    height: 50%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 400px;
+}
+
+/* Additional CSS for login items */
+.login-items {
+    width: 80%; /* Adjust width to fit design */
+    margin-bottom: 20px; /* Add spacing between items */
+}
+
+.login-items label {
+    font-weight: 500;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.login-items input {
+    width: 100%; /* Make the input fields take up full width */
+    padding: 15px; /* Increase padding for larger field size */
+    font-size: 1em; /* Adjust font size */
+    border: 1px solid rgba(200,200,200,0.7); /* Subtle border */
+    border-radius: 4px; /* Rounded corners */
+    box-sizing: border-box;
+}
+
+/* Submit button */
+.login-form input[type="submit"] {
+    width: 60%; /* Adjust width to fit form layout */
+    padding: 15px;
+    background-color: #4A90E2;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-form input[type="submit"]:hover {
+    background-color: #357ABD; /* Darker shade on hover */
+}
+
+
+.nav-element{
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    border-bottom: 1px solid black;
+
+}
+
+li{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.home-page{
+    display: flex;
+    gap: 20px;
+    
+}
+
+.product-design{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+    max-width: 1000px; /* Limit the container width */
+    margin: 0 auto; /* Center the container */
+   
+
+}
+
+.product-container{
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    border-radius: 4px;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.image-design{
+    flex-basis: 70%;
+    border-bottom: 1px solid black;
+    height:100px ;
+}
+
+.bottom-design{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+.price{
+
+    /* box-sizing: border-box; */
+    padding-top: 60px;
+
+}
+.add-to-carts{
+   cursor: pointer;
+   height: 50px;
+   margin-top: 70px;
+    
+}
+
+.cart-design{
+    max-width: 1500px;
+    /* margin: 0, auto; */
+}
+.cart-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    padding-top: 30px;
+}
+
+.upper-design{
+    width: 70%;
+    height: 200px;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.lower-design{
+    width: 70%;
+    background-color: #fff;
+
+    height: fit-content;
+    border: 1px solid black;
+    border-radius: 4px;
+
+}
+
+.border-line{
+    display: flex;
+    flex-direction: column;
+}
+
+.continue-shopping{
+    padding-bottom:30px;
+    border-bottom: 1px solid rgba(189, 182, 182, 0.7);
+    /* display: none; */
+    
+}
+.shopping{
+    margin-left:5px;
+    margin-top: 10px;
+    display: inline-block;
+    height: 45px;
+    width: 100px;
+    border: 1px solid rgba(97, 95, 95, 0.7);
+}
+
+.under-border{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.column{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    border-bottom: 1px solid rgba(189, 182, 182, 0.7);
+    padding-bottom: 10px;
+}
+
+
+.column-bottom{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+    border-bottom: 1px solid rgba(189, 182, 182, 0.7);
+    padding-bottom: 10px;
+    align-items: flex-stretch;
+
+    
+}
+
+.cart-row{
+	display: flex;
+    align-items: flex-stretch;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(189, 182, 182, 0.7);
+    height: auto;
+
+
+}
+
+
+.arrow-design{
+    height: 12px;
+    width: 12px;
+    cursor: pointer;
+    
+}
+
+.arrow-design:hover{
+    opacity: .6;
+}
+
+
+
+.quantity{
+    display: flex;
+    gap: 5px;
+}
+
+.arrow{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.smaller-image{
+    height: 70px;
+    width: 120px;
+    margin-left: 10px;
+}
+
+.checkout-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping of child elements */
+    justify-content: space-between; /* Distributes items evenly */
+    gap: 25px; /* Adds space between the form and summary */
+    padding: 20px; /* Adds padding inside the container */
+    max-width: 1200px; /* Optional: limits container width */
+    margin: 0 auto; /* Centers the container horizontally */
+}
+
+#left-container, .right-container {
+    background-color: #fff;
+    width: 48%; /* Makes them responsive */
+    height: auto; /* Adjust height to fit content */
+    margin-top: 30px;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Replaced solid shadow for a modern look */
+    padding: 15px; /* Adds internal spacing */
+    box-sizing: border-box; /* Includes padding/border in width */
+}
+
+.right-container {
+    height: fit-content; /* Adjusts to content height */
+}
+
+/* Responsive Design */
+
+
+
+
+
+
+
+/* https://api-ref.agora.io/en/video-sdk/web/4.x/index.html#core-methods */

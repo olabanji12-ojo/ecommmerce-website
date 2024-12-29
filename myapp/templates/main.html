@@ -30,38 +30,51 @@
 </head>
 <body>
     <nav class="navbar">
-        <div class="nav-element">
-            <ul class="home-page" >
-                <li><a href="{% url 'home_page' %}">Home</a></li>
-                <li><a href="{% url 'cart' %}">Cart</a></li>
-                <li><a href="{% url 'create_product' %}">Create Product</a></li>
-            </ul>
-            
-            {% if request.user.is_authenticated %}
-            <div class="cart-flex" >
-                <div class="red-cart">
-                    <p id="cart-total">{{order.get_cart_items}}</p>
-                    <a href="{% url 'cart' %}">
-                        
-                        <img  id="cart-icon" src="{% static 'images/cart.png' %}">
-                    </a>
-                    
-
-                </div>
-                
-                
-                <div>
-                    <a href="{% url 'logout_page' %}">Logout</a>
-                </div>
-                {% else %}
-                <div>
-                    <a href="{% url 'login_page' %}">Login</a>
-                </div>
-            </div>
-
+        
+        <ul class="navlist">
+            <li id="hambuger" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+              </svg></li>
+            <!-- <li>☰</li>   -->
+            <li class="hide-nav"><a class="nav-link" href="{% url 'home_page' %}">Home</a></li>
+            <li class="hide-nav" ><a class="nav-link" href="{% url 'cart' %}">Cart</a></li>
+            {% if request.user.is_superuser %}
+            <li class="hide-nav" ><a class="nav-link" href="{% url 'create_product' %}">Create Product</a></li>
             {% endif %}
-        </div>
+        </ul>
+
+        {% if request.user.is_authenticated %}
+        <ul class="login-container">
+            
+             <li>
+                <span class="red-cart">{{order.get_cart_items}}</span>
+                <a href="{% url 'cart' %}">
+                    <img class="cart-icon" src="{% static 'images/cart.png' %}" alt="">
+                </a>
+            </li>
+    
+            <li class="login-logout"><a href="{% url 'logout_page' %}">logout</a></li>
+        </ul>
+        {% else %}
+        <ul>
+            <li><a href="{% url 'login_page' %}">Login</a></li>
+        </ul>
+
+        {% endif %} 
+
     </nav>
+    <hr>
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li class="message {{ message.tags }}">
+          {{ message }}
+          <button class="close" onclick="this.parentElement.style.display='none';">&times;</button>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  
 
     {% block content %}
 
@@ -70,6 +83,35 @@
 
 
     <script src="{% static 'js/cart.js' %}" ></script>
+    <script>
+        let hidenav = document.querySelectorAll('.hide-nav');
+        let Hambuger = document.getElementById('hambuger');
+    
+        Hambuger.addEventListener('click', () => {
+            if (window.innerWidth <= 675) { // Only toggle for small screens
+                hidenav.forEach(item => {
+                    if (item.classList.contains('hide-nav')) {
+                        item.classList.remove('hide-nav'); // Show the menu item
+                    } else {
+                        item.classList.add('hide-nav'); // Hide the menu item
+                    }
+                });
+            }
+        });
+    
+        
+    
+        
+        // let navLinks = document.querySelectorAll('.nav-link');
+        // navLinks.forEach(link => {
+        //    link.addEventListener('click', event => {
+         //       event.preventDefault(); // Stop the link from navigating
+         //       console.log(`${link.textContent} link clicked!`);
+          //  });
+        // });
+        
+        
+    </script>
 
 </body>
 </html>

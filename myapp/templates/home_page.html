@@ -1,26 +1,22 @@
 {% extends 'main.html' %}
 {% load static %}
 
-
-
 {% block content %}
-
-<div class="product-design" >
+<div class="product-design">
     {% for product in products %}
     <div class="product-container">
-        <img class="image-design" src="{{product.image.url}}" alt="">
+        <img class="image-design" src="{{ product.image.url }}" alt="{{ product.name }}">
          
         <div class="bottom-design">
-        
-            <p class="price">price: ${{product.price}}</p>
-            <button data-product_id='{{product.id}}'  data-action='add'  class="add-to-cart add-to-carts" >add to cart</button>
+            <p class="price">Price: ${{ product.price }}</p>
+            <button 
+                data-product_id="{{ product.id }}" 
+                data-action="add" 
+                class="add-to-cart add-to-carts">
+                Add to Cart
+            </button>
         </div>
-
     </div>
-
     {% endfor %}
-
 </div>
-
-
 {% endblock %}

@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+
+
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: rgba(232,233,239,1);
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    height: 100%;
+}
+*{
+    box-sizing: border-box;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav{
+    /* background-color: aqua; */
+    width: 100%;
+    height: 60px;    
+
+}
+#hambuger{
+    display: none;
+    cursor: pointer;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-icon{
+    width: 30px;
+    height: 30px;
+}
+
+.red-cart{
+    height: 20px;
+    width: 20px;
+    background-color: red;
+    border-radius: 50%;
+    float: right;
+    color: white;
+    text-align: center;
+}
+
+.hide-nav {
+    display: block; 
+}
+
+.login-container{
+    float: right;
+}
+
+@media screen and (max-width: 675px) {
+    .hide-nav {
+        display: none; /* Hidden for small screens by default */
+    }
+
+  .navlist{
+    flex-direction: column;
+    gap: 10px;
+   }
+   
+   .remain{
+    display: block;
+   }
+
+
+#hambuger{
+    display: block;
+
+}
+
+.product-container{
+    margin-top: 50px;
+}
+
+
+
+    
+}
+
+
+
+.product-container{
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    border-radius: 4px;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    background-color: #fff;
+    margin: 20px;
+}
+
+.product-design{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+
+/* .product-container{
+    height: 300px;
+    width: 300px;
+    background-color: #eee;
+    margin: 20px;
+    
+
+} */
+
+
+.image-design{
+    flex-basis: 70%;
+    border-bottom: 1px solid black;
+    height:100px ;
+}
+
+.bottom-design{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+.price{
+
+    /* box-sizing: border-box; */
+    padding-top: 60px;
+
+}
+.add-to-carts{
+   cursor: pointer;
+   height: 50px;
+   margin-top: 70px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+/* https://api-ref.agora.io/en/video-sdk/web/4.x/index.html#core-methods */

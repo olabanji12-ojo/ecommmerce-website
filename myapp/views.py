@@ -7,6 +7,8 @@ from .models import *
 from django.core.paginator import Paginator
 import json
 from django.contrib.auth.decorators import user_passes_test
+from django.contrib import messages
+
 
 
 
@@ -34,9 +36,10 @@ def login_page(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            messages.success(request, 'Login Successful!')
             return redirect('home_page')
         else:
-            return HttpResponse('username or password is not correct')
+            messages.error(request, 'Username or Password is Incorrect!')
 
             
     context = {}
@@ -46,6 +49,7 @@ def login_page(request):
 def logout_page(request):
     
     logout(request)
+    messages.success(request, 'You have successfully logged out!')
     return redirect('login_page')
 
 
@@ -104,9 +108,11 @@ def update_cart(request):
     
     if action == 'add':
         items.quantity += 1
+        messages.info(request, 'product added')
         
     elif action == 'remove':
         items.quantity -= 1
+        messages.info(request, 'product removed')
         
     items.save()
     
@@ -138,6 +144,7 @@ def shipping_info(request):
         )
         order_items = Orderitem.objects.filter(order=order)
         order_items.delete()
+        messages.success(request, 'Your Payment was successful!')
         # order_items.save()
 
     return JsonResponse('payment button was clicked', safe=False)
