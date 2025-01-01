@@ -18,6 +18,12 @@ from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# CLOUDINARY IMPORT
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -41,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'myapp',
+    'cloudinary',
+    
 ]
 
 MIDDLEWARE = [
@@ -138,14 +146,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-MEDIA_URL = '/images/'
+# MEDIA_URL = '/images/'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-MEDIA_ROOT = BASE_DIR / 'static/images/'  # Ensure this matches your NGINX alias
+# MEDIA_ROOT = BASE_DIR / 'static/images/'  
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -162,3 +170,13 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'ojoolabanji7@gmail.com'
 EMAIL_HOST_PASSWORD = 'gwbyraqccdemmakn'
+
+# CLOUDINARY DJANGO INTEGRATION
+
+cloudinary.config(
+    
+    cloud_name = 'dhgkmjnvl',
+    api_key = '499392525394422',
+    api_secret = 'imfFxEJmFVLH3uCNaWtQ7VDKzuc',
+    
+)

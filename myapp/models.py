@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
+
 # from .views import product
 
 class Product(models.Model):
@@ -8,7 +10,7 @@ class Product(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=7)
     digital = models.BooleanField(default=False)
     description = models.TextField(null=True, blank=True)
-    image = models.ImageField()
+    image = CloudinaryField('image')
     
     
     def __str__(self):

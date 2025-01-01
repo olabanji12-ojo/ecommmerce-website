@@ -226,7 +226,6 @@ nav{
     width: 100%;
     object-fit: cover; /* Ensures the image scales without distortion */
     border-bottom: 1px solid black;
-    height: 70%;
 }
 
 .bottom-design {
@@ -746,7 +745,7 @@ nav{
 }
 
 /* CHECKOUT BUTTON STYLE */
-.checkout-button-cart {
+.checkout-button {
     display: inline-block; /* Makes it behave like a button */
     padding: 10px 20px; /* Add space around the text */
     font-size: 16px; /* Set a readable font size */
@@ -761,14 +760,15 @@ nav{
     transition: background-color 0.3s ease; /* Smooth hover effect */
 }
 
-.checkout-button-cart:hover {
+.checkout-button:hover {
     background-color: #45a049; /* Slightly darker green on hover */
 }
 
-.checkout-button-cart:active {
+.checkout-button:active {
     background-color: #3e8e41; /* Even darker green when clicked */
     transform: scale(0.98); /* Slight "pressed" effect */
 }
+
 
 
 

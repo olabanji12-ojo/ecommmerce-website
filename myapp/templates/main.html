@@ -29,19 +29,21 @@
 	</script>
 </head>
 <body>
+    
     <nav class="navbar">
-        
-        <ul class="navlist">
-            <li id="hambuger" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-              </svg></li>
-            <!-- <li>☰</li>   -->
-            <li class="hide-nav"><a class="nav-link" href="{% url 'home_page' %}">Home</a></li>
-            <li class="hide-nav" ><a class="nav-link" href="{% url 'cart' %}">Cart</a></li>
-            {% if request.user.is_superuser %}
-            <li class="hide-nav" ><a class="nav-link" href="{% url 'create_product' %}">Create Product</a></li>
-            {% endif %}
-        </ul>
+
+        <div id="nav-wrapper">
+            <ul class="navlist">
+                <li id="hambuger" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                </svg></li> 
+                <li class="hide-nav"><a class="nav-link" href="{% url 'home_page' %}">Home</a></li>
+                <li class="hide-nav"><a class="nav-link" href="{% url 'cart' %}">Cart</a></li>
+                {% if request.user.is_superuser %}
+                <li class="hide-nav"><a class="nav-link" href="{% url 'create_product' %}">Create Product</a></li>
+                {% endif %}
+            </ul>
+        </div>
 
         {% if request.user.is_authenticated %}
         <ul class="login-container">

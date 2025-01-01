@@ -66,24 +66,49 @@ nav{
 }
 
 @media screen and (max-width: 675px) {
-    .hide-nav {
-        display: none; /* Hidden for small screens by default */
+    #nav-wrapper {
+        position: fixed; /* Ensures it stays in place */
+        top: 0;
+        left: -100%; /* Initially hidden off-screen */
+        width: 75%; /* Adjust width as needed */
+        height: 100%; /* Full screen height */
+        background-color: #333; /* Dark background for contrast */
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for effect */
+        z-index: 1000; /* Ensure it's above other content */
+        transition: left 0.3s ease; /* Smooth slide-in effect */
     }
 
-  .navlist{
-    flex-direction: column;
-    gap: 10px;
-   }
-   
-   .remain{
-    display: block;
-   }
+    #nav-wrapper.show {
+        left: 0; /* Slides in from the left */
+    }
 
+    .navlist {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+    }
 
-#hambuger{
-    display: block;
+    .navlist .nav-link {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
 
-}
+    .navlist .nav-link:hover {
+        background-color: #575757;
+    }
+
+    #hambuger {
+        cursor: pointer;
+        font-size: 24px;
+        color: #333;
+        padding: 10px;
+        z-index: 1001; /* Above the nav wrapper */
+    }
 
 .product-design{
     margin-top: 50px;
@@ -226,7 +251,6 @@ nav{
     width: 100%;
     object-fit: cover; /* Ensures the image scales without distortion */
     border-bottom: 1px solid black;
-    height: 70%;
 }
 
 .bottom-design {

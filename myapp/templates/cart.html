@@ -16,7 +16,7 @@
                 <div class="under-border">
                     <h4>Items: {{order.get_cart_items}}</h4>
                     <h4>Total:${{order.get_cart_total}}</h4>
-                    <h4><a href="{% url 'checkout' %}">Checkout</a></h2>
+                    <h4><a class="checkout-button-cart" href="{% url 'checkout' %}">Checkout</a></h2>
                 </div>
 
             </div>
@@ -27,11 +27,11 @@
             <div class="lower-display">
                 <div class="items">
                     <div class="column">
-                        <div style="flex:2"></div>
-                        <div style="flex:2"><strong>Item</strong></div>
-                        <div style="flex:1"><strong>Price</strong></div>
-                        <div style="flex:1"><strong>Quantity</strong></div>
-                        <div style="flex:1"><strong>Total</strong></div>
+                        <div class="smaller-hidden" style="flex:2"></div>
+                        <div class="smaller-hidden" style="flex:2"><strong>Item</strong></div>
+                        <div class="smaller-hidden" style="flex:1"><strong>Price</strong></div>
+                        <div class="smaller-hidden" style="flex:1"><strong>Quantity</strong></div>
+                        <div class="smaller-hidden" style="flex:1"><strong>Total</strong></div>
                     </div>
                        
                     {% for item in items %}

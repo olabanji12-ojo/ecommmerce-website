@@ -67,23 +67,57 @@ nav{
 
 @media screen and (max-width: 675px) {
     .hide-nav {
-        display: none; /* Hidden for small screens by default */
+        display: none; /* Hide menu items by default */
     }
 
-  .navlist{
-    flex-direction: column;
-    gap: 10px;
-   }
+    .navlist {
+        display: flex; /* Ensures flexibility for layout */
+        flex-direction: column; /* Stacks items vertically */
+        gap: 10px; /* Adds spacing between items */
+        padding: 10px; /* Adds some padding around the menu */
+        background-color: #333; /* Dark background for visibility */
+        border-radius: 8px; /* Rounded corners for modern look */
+        position: absolute; /* Allows proper positioning */
+        top: 50px; /* Space below the hamburger icon */
+        left: 10px; /* Aligns slightly away from the edge */
+        width: calc(100% - 20px); /* Ensures responsiveness */
+        z-index: 1000; /* Ensures it's above other elements */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    }
+
+    .navlist .hide-nav a.nav-link {
+        color: white; /* White text for contrast */
+        text-decoration: none; /* Removes underline */
+        font-size: 18px; /* Larger text for better readability */
+        font-weight: bold; /* Emphasizes the links */
+        padding: 10px 15px; /* Adds spacing inside the link */
+        border-radius: 5px; /* Rounded button-like links */
+        transition: background-color 0.3s ease; /* Smooth hover effect */
+    }
+
+    .navlist .hide-nav a.nav-link:hover {
+        background-color: #575757; /* Slightly lighter on hover */
+    }
+
+    #hambuger {
+        cursor: pointer; /* Indicates interactivity */
+        color: #333; /* Dark color for visibility */
+        font-size: 24px; /* Larger icon size */
+        background: none; /* Removes default button styles */
+        border: none; /* Removes border for cleaner look */
+        padding: 10px; /* Adds padding for easier clicks */
+        margin: 5px; /* Adds spacing around the icon */
+    }
    
    .remain{
     display: block;
    }
 
 
-#hambuger{
+/* #hambuger{
     display: block;
 
-}
+} */
 
 .product-design{
     margin-top: 50px;
@@ -226,7 +260,6 @@ nav{
     width: 100%;
     object-fit: cover; /* Ensures the image scales without distortion */
     border-bottom: 1px solid black;
-    height: 70%;
 }
 
 .bottom-design {
