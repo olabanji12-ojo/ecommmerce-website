@@ -23,6 +23,10 @@ def home_page(request):
         # Q(price__icontains=q) |
         # Q(description__icontains=q)
         )
+        if not products.exists():
+            messages.info(request, 'we do not have the product yet')
+            products = Product.objects.none()
+    
     else:
         products = Product.objects.all()
         q = ''
