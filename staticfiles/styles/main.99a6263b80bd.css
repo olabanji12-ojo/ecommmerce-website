@@ -190,14 +190,6 @@ nav{
     width: 80%;
 }
 
-.search-confirmation{
-    display: none;
-}
-
-.search-bar-spacing{
-    margin-top: 50px;
-}
-
 }
 
 
@@ -824,7 +816,7 @@ nav{
     padding: 10px 20px;
     font-size: 16px;
     color: #fff;
-    background-color: #555; /* Deep gray */
+    background-color: #007BFF;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -833,14 +825,14 @@ nav{
 
 /* Add hover effect */
 .search-confirmation:hover {
-    background-color: #333; /* Even deeper gray on hover */
+    background-color: #0056b3;
     transform: scale(1.05);
 }
 
 /* Add focus effect */
 .search-confirmation:focus {
     outline: none;
-    box-shadow: 0 0 5px rgba(85, 85, 85, 0.5);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 

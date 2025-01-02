@@ -8,6 +8,7 @@ from django.core.paginator import Paginator
 import json
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib import messages
+from django.db.models import Q
 
 
 
@@ -15,13 +16,23 @@ from django.contrib import messages
 
 @login_required(login_url='login_page')
 def home_page(request):
+    q = request.GET.get('q')
+    if q != None:
+        products = Product.objects.filter(
+        Q(name__icontains=q) 
+        # Q(price__icontains=q) |
+        # Q(description__icontains=q)
+        )
+    else:
+        products = Product.objects.all()
+    
     customer = request.user.customer  # Assuming user is a Customer; adjust if needed.
     order, created = Order.objects.get_or_create(customer=customer)
-    products = Product.objects.all()
+    
     # Use filter instead of get
     items = Orderitem.objects.filter(order=order)  # Get all items related to the order
     
-    context = {'products': products, 'items': items, 'order': order}
+    context = {'products': products, 'items': items, 'order': order, 'q': q}
     return render(request, 'home_page.html', context)
 
 

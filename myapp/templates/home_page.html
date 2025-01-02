@@ -2,13 +2,28 @@
 {% load static %}
 
 {% block content %}
+
+<div class="search-bar-spacing">
+    <form class="search-container" action="">
+
+        <input class="search-bar" type="text", name="q" value="{{q}}" placeholder="search for products...">
+        <input class="search-confirmation" type="submit" value="Search">
+
+    </form>
+</div>
+
 <div class="product-design">
     {% for product in products %}
     <div class="product-container">
         <img class="image-design" src="{{ product.image.url }}" alt="{{ product.name }}">
          
         <div class="bottom-design">
-            <p class="price">Price: ${{ product.price }}</p>
+            <div class="product-name">
+
+                <p class="price">{{product.name}}</p>
+                <p class="price">Price: ${{ product.price }}</p>
+
+            </div>
             <button 
                 data-product_id="{{ product.id }}" 
                 data-action="add" 

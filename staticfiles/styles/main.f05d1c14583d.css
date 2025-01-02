@@ -190,14 +190,6 @@ nav{
     width: 80%;
 }
 
-.search-confirmation{
-    display: none;
-}
-
-.search-bar-spacing{
-    margin-top: 50px;
-}
-
 }
 
 
@@ -813,34 +805,20 @@ nav{
     transition: width 0.3s ease, box-shadow 0.3s ease;
 }
 
+.search-confirmation{
+    width: 50%; /* Default width for larger screens */
+    max-width: 50px; /* Maximum width to prevent it from stretching too much */
+    min-width: 50px; /* Minimum width to ensure usability on very small screens */
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    outline: none;
+}
+
 /* Add focus effect */
 .search-bar:focus {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     border-color: #007BFF;
-}
-
-
-.search-confirmation {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #555; /* Deep gray */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-/* Add hover effect */
-.search-confirmation:hover {
-    background-color: #333; /* Even deeper gray on hover */
-    transform: scale(1.05);
-}
-
-/* Add focus effect */
-.search-confirmation:focus {
-    outline: none;
-    box-shadow: 0 0 5px rgba(85, 85, 85, 0.5);
 }
 
 

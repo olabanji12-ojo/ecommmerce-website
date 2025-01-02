@@ -66,6 +66,7 @@ nav{
 }
 
 @media screen and (max-width: 675px) {
+
     .hide-nav {
         display: none; /* Hidden for small screens by default */
     }
@@ -184,6 +185,19 @@ nav{
     display: none;
 }
 
+/* SEARCH BAR ON SMALLER SCREENS */
+.search-bar{
+    width: 80%;
+}
+
+.search-confirmation{
+    display: none;
+}
+
+.search-bar-spacing{
+    margin-top: 50px;
+}
+
 }
 
 
@@ -258,6 +272,11 @@ nav{
     background-color: #0056b3; /* Changes color on hover for better UX */
 }
 
+.product-name{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
 /* LOGIN PAGE STYLING */
 
@@ -770,6 +789,59 @@ nav{
     transform: scale(0.98); /* Slight "pressed" effect */
 }
 
+/* SEARCH UNCTIONALITY */
+
+/* Center the search container */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 100%;
+}
+
+/* Style the search bar */
+.search-bar {
+    width: 50%; /* Default width for larger screens */
+    max-width: 600px; /* Maximum width to prevent it from stretching too much */
+    min-width: 200px; /* Minimum width to ensure usability on very small screens */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: width 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add focus effect */
+.search-bar:focus {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-color: #007BFF;
+}
+
+
+.search-confirmation {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #555; /* Deep gray */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Add hover effect */
+.search-confirmation:hover {
+    background-color: #333; /* Even deeper gray on hover */
+    transform: scale(1.05);
+}
+
+/* Add focus effect */
+.search-confirmation:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(85, 85, 85, 0.5);
+}
 
 
 /* https://api-ref.agora.io/en/video-sdk/web/4.x/index.html#core-methods */
