@@ -2,26 +2,22 @@
 
 {% block content %}
 
-<div class="login-page" >
-  <form method="POST"  action="" class="login-form">
+<div class="login-page">
+  <form method="POST" action="" class="login-form">
     {% csrf_token %}
-    <div class="login-items" >
-     <!-- <label class="username-password">Username:</label> -->
-     <input type="text" placeholder="username..." name="username">
-   </div>   
-   <div class="login-items" >
-    <!-- <label class="username-password">Password:</label> -->
-    <input type="password" placeholder="password..." name="password" >
+    <div class="login-items">
+      <label class="username-password">Username:</label>
+      <input type="text" placeholder="Enter username..." name="username">
+    </div>   
+    <div class="login-items">
+      <label class="username-password">Password:</label>
+      <input type="password" placeholder="Enter password..." name="password">
+    </div>
 
-   </div>
-
-  <input type="submit" value="Login">
-  <p>Dont have an account yet ? <a href="{% url 'register_page' %}">register</a></p>
-  <a href="{% url 'reset_password' %}">forgot password?</a>
+    <input type="submit" value="Login">
+    <p>Don’t have an account yet? <a href="{% url 'register_page' %}">Register</a></p>
+    <a href="{% url 'reset_password' %}">Forgot Password?</a>
   </form>
-  
-
 </div>
-
 
 {% endblock %}

@@ -37,9 +37,31 @@ nav{
     cursor: pointer;
 }
 
-.navbar{
+.navbar {
+    background-color: #4A90E2; /* Primary background color */
+    color: #fff; /* Text color */
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-link {
+    color: #fff; /* White color for links */
+    text-decoration: none; /* Remove underline */
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0 15px; /* Add spacing between links */
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #FFD700; /* Golden color on hover */
+    text-decoration: underline; /* Add underline on hover */
 }
 
 .cart-icon{
@@ -64,6 +86,21 @@ nav{
 .login-container{
     float: right;
 }
+.login-container a {
+    color: #fff; /* Match navbar links color */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.login-container a:hover {
+    background-color: #FFD700; /* Golden background on hover */
+    color: #4A90E2; /* Switch to primary background color */
+    border: 1px solid #FFD700;
+}
 
 @media screen and (max-width: 675px) {
 
@@ -81,9 +118,24 @@ nav{
    }
 
 
-#hambuger{
-    display: block;
+#hambuger {
+    cursor: pointer;
+    color: #fff;
+}
 
+.navlist {
+    display: flex;
+    gap: 20px;
+}
+
+.hide-nav {
+    display: none; /* Hidden for smaller screens */
+}
+
+.remain {
+    display: flex; /* Show navigation on toggle */
+    flex-direction: column;
+    gap: 10px;
 }
 
 .product-design{
@@ -212,7 +264,6 @@ nav{
 .login-form input[type="submit"] {
     width: 100%; 
 }
-
 
 
 }
@@ -899,88 +950,6 @@ nav{
     outline: none;
     box-shadow: 0 0 5px rgba(85, 85, 85, 0.5);
 }
-
-/* REGISTRATION PAGE STYLING */
-
-/* Container for the registration page */
-.register-container {
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #f9f9f9; /* Light grey background */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    border-radius: 8px;
-    font-family: Arial, sans-serif;
-}
-
-/* Registration form styles */
-.register-page {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Space between fields */
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px; /* Space between label and input */
-}
-
-label {
-    font-weight: bold;
-    font-size: 14px;
-    color: #333;
-}
-
-input[type="text"], input[type="email"], input[type="password"] {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
-    border-color: #4A90E2; /* Highlighted border on focus */
-    outline: none;
-}
-
-.register-btn {
-    background-color: #4A90E2; /* Primary button color */
-    color: #fff; /* White text */
-    padding: 10px 15px;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.register-btn:hover {
-    background-color: #357ABD; /* Darker blue on hover */
-}
-
-/* Link styles */
-.register-container a {
-    color: #4A90E2;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.register-container a:hover {
-    color: #357ABD; /* Darker blue on hover */
-}
-
-/* Error message styles */
-.form-group .errorlist {
-    color: red;
-    font-size: 12px;
-    margin: 0;
-    padding: 0;
-}
-
 
 
 /* https://api-ref.agora.io/en/video-sdk/web/4.x/index.html#core-methods */

@@ -199,20 +199,24 @@ nav{
 }
 
 /* LOGIN PAGE FIX */
+.login-page {
+    flex-direction: column; /* Adjust layout for smaller screens */
+    padding: 20px; /* Reduce padding for smaller screens */
+}
+
 .login-form {
-    width: 90%; 
-    max-width: 100%; 
-    padding: 15px; 
+    width: 90%; /* Increase width to fit smaller screens */
+    max-width: 100%; /* Prevent restriction */
+    padding: 15px; /* Adjust padding for smaller screens */
 }
 
 .login-items {
-    width: 100%; 
+    width: 100%; /* Make items full width */
 }
 
 .login-form input[type="submit"] {
-    width: 100%; 
+    width: 100%; /* Make the button span full width */
 }
-
 
 
 }
@@ -308,28 +312,17 @@ nav{
 }
 
 /* Login Form Styling */
-.login-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 50px 20px; 
-    margin: 0 auto; 
-    min-height: 100%; 
-    box-sizing: border-box;
-}
-
-/* Login Form Styling */
 .login-form {
     background-color: #fff;
-    width: 100%;
-    max-width: 400px;
+    width: 100%; /* Default full width */
+    max-width: 400px; /* Restrict maximum width */
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    padding: 20px; /* Add internal spacing */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 /* Login Items */
@@ -369,32 +362,6 @@ nav{
 
 .login-form input[type="submit"]:hover {
     background-color: #357ABD; 
-}
-
-/* Link Styling */
-.login-form a {
-    color: #4A90E2; /* Match primary color */
-    text-decoration: none; /* Remove underline */
-    font-weight: bold; /* Slight emphasis */
-    margin-top: 10px; /* Space between elements */
-    transition: color 0.3s ease;
-}
-
-.login-form a:hover {
-    color: #357ABD; /* Darker shade on hover */
-    text-decoration: underline; /* Add underline for emphasis */
-}
-
-/* Paragraph with link */
-.login-form p {
-    margin: 15px 0 0; /* Add some spacing above */
-    font-size: 0.9em; /* Slightly smaller text */
-    color: #333; /* Neutral text color */
-}
-
-.login-form p a {
-    font-weight: bold; 
-    text-decoration: underline; 
 }
 
 
@@ -899,88 +866,6 @@ nav{
     outline: none;
     box-shadow: 0 0 5px rgba(85, 85, 85, 0.5);
 }
-
-/* REGISTRATION PAGE STYLING */
-
-/* Container for the registration page */
-.register-container {
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #f9f9f9; /* Light grey background */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    border-radius: 8px;
-    font-family: Arial, sans-serif;
-}
-
-/* Registration form styles */
-.register-page {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Space between fields */
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px; /* Space between label and input */
-}
-
-label {
-    font-weight: bold;
-    font-size: 14px;
-    color: #333;
-}
-
-input[type="text"], input[type="email"], input[type="password"] {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
-    border-color: #4A90E2; /* Highlighted border on focus */
-    outline: none;
-}
-
-.register-btn {
-    background-color: #4A90E2; /* Primary button color */
-    color: #fff; /* White text */
-    padding: 10px 15px;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.register-btn:hover {
-    background-color: #357ABD; /* Darker blue on hover */
-}
-
-/* Link styles */
-.register-container a {
-    color: #4A90E2;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.register-container a:hover {
-    color: #357ABD; /* Darker blue on hover */
-}
-
-/* Error message styles */
-.form-group .errorlist {
-    color: red;
-    font-size: 12px;
-    margin: 0;
-    padding: 0;
-}
-
 
 
 /* https://api-ref.agora.io/en/video-sdk/web/4.x/index.html#core-methods */
