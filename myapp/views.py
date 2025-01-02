@@ -25,7 +25,7 @@ def home_page(request):
         )
     else:
         products = Product.objects.all()
-        q == ''
+        q = ''
     
     customer = request.user.customer  # Assuming user is a Customer; adjust if needed.
     order, created = Order.objects.get_or_create(customer=customer)
