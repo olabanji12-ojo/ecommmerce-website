@@ -1,38 +1,38 @@
-🛒 E-commerce Website
-A fully functional e-commerce web application built with Django. This platform allows users to browse products, add items to their cart, and complete orders. It supports user login and registration features.
+# 🛒 E-commerce Website
 
-✨ Features
-👤 User authentication (Login, Logout, Registration)
+A fully functional e-commerce web application built with **Django**. This platform allows users to browse products, add items to their cart, and complete orders. It supports  **user login** features.
 
-🛍️ Shopping cart functionality
+---
 
-💳 Checkout process for authenticated users
+## ✨ Features
 
-🧑‍💼 Admin panel to manage products, orders, and users
-
-🛒 Product listing with search and filter capabilities
-
-📝 Order history for logged-in users
-
-💬 Custom messages for successful actions (e.g., adding to cart, checkout success)
+- 👤 User authentication (Login, Logout, Registration)
+- 🛍️ Shopping cart functionality
+- 💳 Checkout process for both authenticated 
+- 🧑‍💼 Admin panel to manage products, orders, and users
+- 🛒 Product listing with search and filter capabilities
+- 📝 Order history for logged-in users
+- 💬 Custom messages for successful actions (e.g., adding to cart, checkout success)
 
 
-🏗️ Tech Stack
-Backend: Python, Django
+---
 
-Database: SQLite (default) or PostgreSQL (optional for production)
+## 🏗️ Tech Stack
 
-Frontend: HTML, CSS, JavaScript
+- **Backend**: Python, Django
+- **Database**: SQLite (default) or PostgreSQL (optional for production)
+- **Frontend**: HTML, CSS, JavaScript
+- **Other**: Django's messages framework for notifications
 
-Other: Django's messages framework for notifications
+---
 
- 🚀 Getting Started
- 
-1.Clone the repository
+## 🚀 Getting Started
 
-git clone https://github.com/your-username/ecommerce-website.git
-cd ecommerce-website
+1. **Clone the repository**
 
+  
+   git clone https://github.com/your-username/ecommerce-website.git
+   cd ecommerce-website
 
 2. Create a virtual environment
 python -m venv venv
